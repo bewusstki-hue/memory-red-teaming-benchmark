@@ -4,7 +4,7 @@
 
 **Arbeitstitel:** Memory Red-Teaming Benchmark (MRTB)  
 **Dokumentstatus:** Erweiterter Konzeptentwurf v0.3  
-**Erster freiwilliger Prüfling:** ALEX  
+**Erster freiwilliger Prüfling:** Testkandidat  
 **Grundsatz:** Erst die Regeln, dann die Prüfmaschine, danach die Ergebnisse.
 
 ---
@@ -17,12 +17,12 @@ Der Benchmark prüft nicht primär, wie nützlich, intelligent oder retrieval-st
 
 Der Benchmark führt kontrollierte Angriffe gegen unterschiedliche Memory- und Agenten-Systeme aus. Dazu gehören Memory Poisoning, Cross-Tenant Leakage, Context Drift, Authority-Laundering, Replay nach Löschung, verzögert aktiviertes Poisoning, Ressourcenmissbrauch und Halluzinationskaskaden. Jeder Test besitzt ein explizites Angreifermodell, einen definierten Ausgangszustand, maschinell prüfbare Invarianten, einen reproduzierbaren Seed und einen vollständigen Event-Trace.
 
-ALEX wird als erstes System freiwillig öffentlich getestet. Der Benchmark gehört jedoch nicht ALEX und soll ALEX nicht bestätigen. Für ALEX gelten dieselben Adapterregeln, Tests und Bewertungsverfahren wie für jedes andere System. Ein gutes ALEX-Ergebnis ist kein allgemeiner Produktqualitätsbeweis, sondern ein öffentlicher, reproduzierbarer Datenpunkt. Ein schlechtes Ergebnis ist kein Scheitern des Projekts, sondern der Beweis, dass der Benchmark tatsächlich Schwachstellen findet.
+Testkandidat wird als erstes System freiwillig öffentlich getestet. Der Benchmark gehört jedoch nicht Testkandidat und soll Testkandidat nicht bestätigen. Für Testkandidat gelten dieselben Adapterregeln, Tests und Bewertungsverfahren wie für jedes andere System. Ein gutes Testkandidat-Ergebnis ist kein allgemeiner Produktqualitätsbeweis, sondern ein öffentlicher, reproduzierbarer Datenpunkt. Ein schlechtes Ergebnis ist kein Scheitern des Projekts, sondern der Beweis, dass der Benchmark tatsächlich Schwachstellen findet.
 
 Das strategische Ziel ist dreigeteilt:
 
 1. Ein glaubwürdiges, wissenschaftlich anschlussfähiges Prüfwerkzeug für die Branche schaffen.
-2. Die Ergebnisse als systematische Rückkopplung zur Härtung von ALEX verwenden.
+2. Die Ergebnisse als systematische Rückkopplung zur Härtung von Testkandidat verwenden.
 3. Ein offenes Prüfprotokoll etablieren, auf dem unabhängige öffentliche und private Tests interoperabel ausgeführt werden können.
 
 ---
@@ -31,22 +31,22 @@ Das strategische Ziel ist dreigeteilt:
 
 ### 2.1 Die Kernidee
 
-Statt ein weiteres Memory-Produkt mit nicht vergleichbaren Leistungsversprechen anzubieten, definiert das Projekt überprüfbare Sicherheitsanforderungen und stellt eine offene Testmaschine bereit. Dadurch verschiebt sich die Rolle von ALEX:
+Statt ein weiteres Memory-Produkt mit nicht vergleichbaren Leistungsversprechen anzubieten, definiert das Projekt überprüfbare Sicherheitsanforderungen und stellt eine offene Testmaschine bereit. Dadurch verschiebt sich die Rolle von Testkandidat:
 
-- ALEX behauptet nicht nur, sicher zu sein.
-- ALEX stellt sich einem öffentlichen, versionierten Prüfverfahren.
+- Testkandidat behauptet nicht nur, sicher zu sein.
+- Testkandidat stellt sich einem öffentlichen, versionierten Prüfverfahren.
 - Andere Systeme können denselben Benchmark ausführen.
 - Externe Forscher können Szenarien, Ergebnisse und Bewertungslogik prüfen.
 - Erkannte Schwächen fließen in neue Schutzmechanismen und Regressionstests ein.
 
 ### 2.2 Unabhängigkeit als Voraussetzung
 
-Benchmark und ALEX werden organisatorisch und technisch getrennt:
+Benchmark und Testkandidat werden organisatorisch und technisch getrennt:
 
 - eigenes Repository für die Benchmark-Spezifikation und Implementierung
-- eigenes Repository für ALEX
+- eigenes Repository für Testkandidat
 - optional eigenes Repository für veröffentlichte Ergebnisartefakte
-- keine ALEX-spezifischen Regeln im Benchmark-Core
+- keine Testkandidat-spezifischen Regeln im Benchmark-Core
 - keine vom Systemnamen abhängigen Erwartungen
 - öffentliche Regeln für Interessenkonflikte
 
@@ -54,15 +54,15 @@ Empfohlene Repositories:
 
 ```text
 memory-redteam-benchmark/
-alex-memory-system/
+testkandidat-memory-system/
 memory-redteam-results/
 ```
 
 ### 2.3 Öffentliches Narrativ
 
-> Wir veröffentlichen zuerst die Regeln, dann die Prüfmaschine und erst danach die Ergebnisse. ALEX erhält weder Sonderregeln noch eine Vorabgarantie auf ein gutes Resultat.
+> Wir veröffentlichen zuerst die Regeln, dann die Prüfmaschine und erst danach die Ergebnisse. Testkandidat erhält weder Sonderregeln noch eine Vorabgarantie auf ein gutes Resultat.
 
-> ALEX ist der erste freiwillige Prüfling. Der Benchmark misst Sicherheitseigenschaften, keine allgemeine Produktqualität. Ein gutes Ergebnis von ALEX ist kein Marketing-Claim, sondern ein öffentlicher Datenpunkt.
+> Testkandidat ist der erste freiwillige Prüfling. Der Benchmark misst Sicherheitseigenschaften, keine allgemeine Produktqualität. Ein gutes Ergebnis von Testkandidat ist kein Marketing-Claim, sondern ein öffentlicher Datenpunkt.
 
 ---
 
@@ -668,11 +668,11 @@ Der Open Research Track bleibt die wissenschaftliche Grundlage.
 
 ---
 
-## 13. ALEX als erster öffentlicher Prüfling
+## 13. Testkandidat als erster öffentlicher Prüfling
 
-### 13.1 Rolle von ALEX
+### 13.1 Rolle von Testkandidat
 
-ALEX ist:
+Testkandidat ist:
 
 - erster freiwilliger Prüfling
 - früher Adapter zur Validierung des Contracts
@@ -684,11 +684,11 @@ ALEX ist:
 
 1. Die Benchmark-Spezifikation wird als `v0.1-draft` veröffentlicht.
 2. Referenzadapter und bewusst unsicherer Adapter beweisen, dass Tests Passes und Failures erkennen.
-3. Der ALEX-Adapter wird gegen die Conformance Suite geprüft.
+3. Der Testkandidat-Adapter wird gegen die Conformance Suite geprüft.
 4. Die ersten Läufe werden ohne Ergebnisoptimierung archiviert.
 5. Schwachstellen werden nach einem Disclosure-Prozess bewertet.
-6. Ein öffentlicher ALEX-Baseline-Report wird veröffentlicht.
-7. Patches werden als neue ALEX-Version implementiert.
+6. Ein öffentlicher Testkandidat-Baseline-Report wird veröffentlicht.
+7. Patches werden als neue Testkandidat-Version implementiert.
 8. Regressionstests zeigen transparent, was verbessert wurde und was offen bleibt.
 
 ### 13.3 Darstellung des Ergebnisses
@@ -707,7 +707,7 @@ Ein guter erster Bericht zeigt nicht nur Scores, sondern:
 
 Der glaubwürdigste Bericht lautet sinngemäß:
 
-> Wir haben den Benchmark gebaut, ALEX zuerst getestet, konkrete Fehler gefunden und einen Teil davon behoben. Nicht alle Risiken sind gelöst.
+> Wir haben den Benchmark gebaut, Testkandidat zuerst getestet, konkrete Fehler gefunden und einen Teil davon behoben. Nicht alle Risiken sind gelöst.
 
 ---
 
@@ -715,7 +715,7 @@ Der glaubwürdigste Bericht lautet sinngemäß:
 
 ### 14.1 Ziel des MVP
 
-Der MVP beweist nicht die vollständige Sicherheit von ALEX oder der Branche. Er beweist, dass:
+Der MVP beweist nicht die vollständige Sicherheit von Testkandidat oder der Branche. Er beweist, dass:
 
 - Tests formal spezifizierbar sind
 - unterschiedliche Systeme über Adapter geprüft werden können
@@ -768,7 +768,7 @@ Misst:
 4. Adapter Conformance Suite
 5. sicherer Minimal-Referenzadapter
 6. absichtlich unsicherer Referenzadapter
-7. ALEX-Adapter
+7. Testkandidat-Adapter
 8. mindestens ein unabhängiger externer Adapter
 9. drei Angriffsfamilien
 10. deterministische Evaluatoren
@@ -803,7 +803,7 @@ memory-redteam-benchmark/
 │   │   ├── base.py
 │   │   ├── reference_secure.py
 │   │   ├── reference_insecure.py
-│   │   └── alex.py
+│   │   └── testkandidat.py
 │   ├── attacks/
 │   │   ├── confidentiality/
 │   │   ├── integrity/
@@ -837,7 +837,7 @@ memory-redteam-benchmark/
 
 ```text
 memory-redteam-results/
-├── alex/
+├── testkandidat/
 │   └── v0.1.0/
 ├── reference-secure/
 ├── reference-insecure/
@@ -847,12 +847,12 @@ memory-redteam-results/
 ### 15.1 CLI-Entwurf
 
 ```bash
-memory-redteam validate-adapter alex
+memory-redteam validate-adapter testkandidat
 memory-redteam list-scenarios
-memory-redteam run --adapter alex --profile memory-only --seed 42
-memory-redteam run --adapter alex --suite mvp --repeat 20
+memory-redteam run --adapter testkandidat --profile memory-only --seed 42
+memory-redteam run --adapter testkandidat --suite mvp --repeat 20
 memory-redteam report ./runs/run-id --format html
-memory-redteam compare ./runs/alex ./runs/reference
+memory-redteam compare ./runs/testkandidat ./runs/reference
 ```
 
 ### 15.2 CI-Verhalten
@@ -884,7 +884,7 @@ memory-redteam compare ./runs/alex ./runs/reference
 - Metriken
 - Governance
 
-Veröffentlichung als `v0.1-draft`, bevor ein ALEX-Score veröffentlicht wird.
+Veröffentlichung als `v0.1-draft`, bevor ein Testkandidat-Score veröffentlicht wird.
 
 ### Phase 2: Vertical Slice
 
@@ -894,9 +894,9 @@ Veröffentlichung als `v0.1-draft`, bevor ein ALEX-Score veröffentlicht wird.
 - Event-Tracing
 - minimaler CLI-Runner
 
-### Phase 3: ALEX Baseline
+### Phase 3: Testkandidat Baseline
 
-- ALEX-Adapter
+- Testkandidat-Adapter
 - Conformance-Test
 - interner Lauf
 - Disclosure und Triage
@@ -934,7 +934,7 @@ Das Leaderboard zeigt keine einzelne Rangzahl ohne Kontext. Es filtert mindesten
 - Kosten- und Latenzbudget
 - Reproduzierbarkeitsstatus
 
-Systeme sollen auch besser als ALEX abschneiden können. Nur dann kann der Benchmark als unabhängiger Standard wahrgenommen werden.
+Systeme sollen auch besser als Testkandidat abschneiden können. Nur dann kann der Benchmark als unabhängiger Standard wahrgenommen werden.
 
 Historische Ergebnisse bleiben sichtbar, damit Sicherheitsregressionen nach Updates erkannt werden. Re-Tests erzeugen neue, nebeneinander vergleichbare Datenpunkte.
 
@@ -961,7 +961,7 @@ Der Benchmark verwendet standardmäßig synthetische Daten und kontrollierte Tes
 
 | Risiko | Gegenmaßnahme |
 |---|---|
-| Wahrnehmung als ALEX-Marketing | Spec zuerst, getrennte Repositories, externe Adapter und Reviewer |
+| Wahrnehmung als Testkandidat-Marketing | Spec zuerst, getrennte Repositories, externe Adapter und Reviewer |
 | Wiederholung bestehender Forschung | versionierte Related-Work-Matrix und enger Neuheitsanspruch |
 | LLM-Judge-lastige Ergebnisse | deterministische Invarianten als Primärbewertung |
 | Schlechte Vergleichbarkeit | Profile, Capability Discovery und vollständiges Konfigurationsmanifest |
@@ -982,7 +982,7 @@ Der Benchmark verwendet standardmäßig synthetische Daten und kontrollierte Tes
 - Ein externer Entwickler kann einen Adapter ohne Änderungen am Core implementieren.
 - Ein Lauf ist mit Version, Seed und Manifest nachvollziehbar.
 - Der unsichere Referenzadapter erzeugt erwartete Failures.
-- ALEX und ein externes System können dieselben Tests ausführen.
+- Testkandidat und ein externes System können dieselben Tests ausführen.
 - Hard Invariants benötigen keinen LLM-Judge.
 - Löschung und Tenant-Isolation sind im MVP prüfbar.
 
@@ -996,9 +996,9 @@ Der Benchmark verwendet standardmäßig synthetische Daten und kontrollierte Tes
 
 ### Strategisch
 
-- Der Benchmark ist unabhängig von ALEX nutzbar.
+- Der Benchmark ist unabhängig von Testkandidat nutzbar.
 - Andere Systeme können besser abschneiden.
-- Fehler von ALEX werden transparent dokumentiert.
+- Fehler von Testkandidat werden transparent dokumentiert.
 - externe Beiträge erweitern Szenarien und Adapter.
 - das Projekt wird als Prüfwerkzeug und nicht nur als Produktwerbung wahrgenommen.
 
@@ -1027,7 +1027,7 @@ als explizite TODO-Entscheidungen, nicht als erfundene Festlegungen.
 Akzeptanzkriterien:
 - Paket ist installierbar.
 - pytest, ruff und mypy laufen.
-- keine systemspezifische ALEX-Logik im Core.
+- keine systemspezifische Testkandidat-Logik im Core.
 - jede Spezifikationsdatei nennt Status und Spec-Version.
 ```
 
@@ -1096,20 +1096,20 @@ INCONCLUSIVE und ERROR getrennt. Implementiere die definierten Exit-Codes.
 Ein Gesamtscore darf noch nicht eingeführt werden.
 ```
 
-### Auftrag 7: ALEX-Adapter
+### Auftrag 7: Testkandidat-Adapter
 
-**Ziel:** ALEX als erster echter Prüfling, ohne Änderungen am Benchmark-Core.
+**Ziel:** Testkandidat als erster echter Prüfling, ohne Änderungen am Benchmark-Core.
 
 ```text
-Implementiere den ALEX-Adapter ausschließlich über den öffentlichen
-BaseMemoryAdapter-Contract. Falls ALEX Fähigkeiten nicht anbietet, melde sie
-über Capability Discovery als unsupported. Füge keine ALEX-Ausnahmen in Runner,
+Implementiere den Testkandidat-Adapter ausschließlich über den öffentlichen
+BaseMemoryAdapter-Contract. Falls Testkandidat Fähigkeiten nicht anbietet, melde sie
+über Capability Discovery als unsupported. Füge keine Testkandidat-Ausnahmen in Runner,
 Szenarien oder Evaluatoren ein. Dokumentiere jedes API-Mapping.
 ```
 
 ### Auftrag 8: Unabhängiger Adapter
 
-**Ziel:** Beweis, dass der Benchmark nicht ALEX-zentrisch ist.
+**Ziel:** Beweis, dass der Benchmark nicht Testkandidat-zentrisch ist.
 
 Das konkrete System wird nach einem kurzen technischen Spike gewählt. Kriterien:
 
@@ -1150,7 +1150,7 @@ Der nächste Schritt ist nicht die vollständige Implementierung. Zuerst wird ei
 6. `TEST_FORMAT.md`
 7. drei vollständig spezifizierte MVP-Testfälle
 
-Danach werden der sichere und der bewusst unsichere Referenzadapter implementiert. Erst wenn diese Kombination nachweislich reproduzierbare Passes und Failures erzeugt, folgen ALEX und ein unabhängiges Vergleichssystem.
+Danach werden der sichere und der bewusst unsichere Referenzadapter implementiert. Erst wenn diese Kombination nachweislich reproduzierbare Passes und Failures erzeugt, folgen Testkandidat und ein unabhängiges Vergleichssystem.
 
 ---
 
@@ -1466,7 +1466,7 @@ Die Adapteraussage wird durch mehrere Belege gestützt:
 6. reproduzierbarer Build und Adapter-Digest
 7. Target-seitige Receipts mit Nonce, Request- und Response-Digest
 
-Eine fehlende native Fähigkeit wird als `UNSUPPORTED` ausgewiesen. Der Core enthält keine ALEX-spezifischen Ausnahmebedingungen.
+Eine fehlende native Fähigkeit wird als `UNSUPPORTED` ausgewiesen. Der Core enthält keine Testkandidat-spezifischen Ausnahmebedingungen.
 
 ### 26.4 Unparteilichkeit des Evaluators
 
@@ -1519,7 +1519,7 @@ Für lokale oder selbst gehostete Targets wird ein signiertes Release Manifest v
 
 ```yaml
 release:
-  product: ALEX
+  product: Testkandidat
   version: 0.2.0
   source_commit: "..."
   container_digest: sha256:...
@@ -1618,7 +1618,7 @@ src/memory_redteam/
 9. Hash-verketteter Event-Trace
 10. Evidence Bundle und Offline-Verifier
 11. lokale Signatur und externer Timestamp als L1
-12. ALEX-Adapter und signiertes ALEX Release Manifest
+12. Testkandidat-Adapter und signiertes Testkandidat Release Manifest
 13. unabhängiger Target Adapter
 14. externer Witness und attestierte CI als L2
 15. unabhängige Reproduktion als L3
@@ -1919,7 +1919,7 @@ class EvidenceClaim:
 
 Der Report bildet organisatorische Kontrolle ab. Wenn Runner, Target, Witness und Signaturschlüssel derselben Partei unterstehen, sind mehrere Signaturen nicht wirklich unabhängig.
 
-Für öffentliche Claims über ALEX gilt daher:
+Für öffentliche Claims über Testkandidat gilt daher:
 
 - L1/L2 sind notwendige Integritätsstufen.
 - L3 ist die relevante Glaubwürdigkeitsstufe.
@@ -2105,7 +2105,7 @@ teste, dass target_id und Herstellerfelder nicht am Evaluator-Interface ankommen
 
 ## 32. Schlussfolgerung
 
-Der Memory Red-Teaming Benchmark kann zu einem eigenständigen Open-Source- und Forschungsprojekt werden, das gleichzeitig die Entwicklung von ALEX beschleunigt. Seine Glaubwürdigkeit hängt jedoch stärker von methodischer Disziplin als von der Zahl der Angriffsprompts ab.
+Der Memory Red-Teaming Benchmark kann zu einem eigenständigen Open-Source- und Forschungsprojekt werden, das gleichzeitig die Entwicklung von Testkandidat beschleunigt. Seine Glaubwürdigkeit hängt jedoch stärker von methodischer Disziplin als von der Zahl der Angriffsprompts ab.
 
 Die tragenden Prinzipien sind:
 
@@ -2118,7 +2118,7 @@ Die tragenden Prinzipien sind:
 - deterministische Primärevaluatoren
 - vollständige Event-Traces
 - öffentliche Governance
-- ehrliche Ergebnisse, auch wenn ALEX scheitert
+- ehrliche Ergebnisse, auch wenn Testkandidat scheitert
 - ein neutraler Protocol Core mit austauschbaren Plugins
 - eine getrennte offizielle Suite für vergleichbare Ergebnisse
 - signierte Run Plans und vollständige Zustandsabschlüsse
@@ -2130,7 +2130,7 @@ Die tragenden Prinzipien sind:
 - eine formale Trust Assumption Registry
 - eine restriktive Claim Ladder und ein deterministischer Claim Compiler
 
-Wenn diese Prinzipien eingehalten werden, wird ALEX nicht durch Behauptungen positioniert, sondern durch die Bereitschaft, sich denselben offenen Regeln wie jedes konkurrierende System zu unterwerfen.
+Wenn diese Prinzipien eingehalten werden, wird Testkandidat nicht durch Behauptungen positioniert, sondern durch die Bereitschaft, sich denselben offenen Regeln wie jedes konkurrierende System zu unterwerfen.
 
 ---
 
