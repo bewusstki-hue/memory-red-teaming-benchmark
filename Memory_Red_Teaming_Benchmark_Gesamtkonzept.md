@@ -128,6 +128,47 @@ Vor einem wissenschaftlichen Neuheitsanspruch wird eine versionierte Related-Wor
 
 ## 4. Systemgrenzen und Bewertungsprofile
 
+### 4.0 Definition: Was dieser Benchmark unter einem "Memory-System" versteht
+
+Ein externer Review hat zu Recht bemängelt, dass dieses Dokument bisher voraussetzt statt
+definiert, was ein Memory-System ist und in welchem Szenario es betrieben wird. Beides wird
+hier nachgeholt, mit Verweis auf die bereits existierenden, konkreteren Abschnitte statt einer
+zweiten, möglicherweise abweichenden Beschreibung.
+
+**Was es ist (operational, nicht philosophisch):** Für diesen Benchmark ist ein Memory-System
+jedes System, das Informationen über einen einzelnen Modellaufruf hinaus persistiert (Sessions,
+Tenants, längere Zeiträume) und sich über den in **§8 Adapter-Contract** definierten
+`BaseMemoryAdapter` ansprechen lässt -- unabhängig davon, ob die Implementierung dahinter ein
+Vektorstore, eine klassische Datenbank, ein Hybridsystem oder etwas anderes ist. Die
+Speichertechnologie ist bewusst nicht Teil der Definition; die Fähigkeit, Schreiben, Retrieval,
+Löschen, Tenant-Trennung und Provenienz über dieselbe Schnittstelle prüfbar zu machen, ist es.
+Welche dieser Fähigkeiten ein konkretes System tatsächlich unterstützt, meldet es selbst über
+`MemoryCapabilities` (§8.3) -- nicht unterstützte Operationen ergeben `UNSUPPORTED`, keine
+stillschweigende Ausnahme.
+
+**In welchem Szenario es eingebettet ist:** Dieser Benchmark behandelt das Memory-System
+ausdrücklich als **Komponente innerhalb eines größeren Agentensystems** (z.B. eines
+Agent-Harness), nicht als eigenständigen, direkt über das Internet erreichbaren SaaS-Dienst. Das
+Memory-only-Profil (§4.1) isoliert diese Komponente absichtlich von Modell, Agentenlogik und
+Tools, um reproduzierbare, systemübergreifend vergleichbare Aussagen über genau diese
+Komponente zu treffen -- das End-to-End-Profil (§4.2) prüft dieselbe Komponente danach wieder im
+Zusammenspiel mit dem Rest des Systems, aus genau dem Grund, den der Review zurecht einwirft:
+ein Schutzmechanismus auf Agenten- oder Anwendungsebene kann einen Angriff abfangen, ohne dass
+die Memory-Schicht selbst sicher ist, und umgekehrt kann eine sichere Memory-Schicht nichts an
+einer verwundbaren Gesamtarchitektur ändern.
+
+**Wo die Grenze dieses Ansatzes liegt (ehrlich benannt, nicht verschwiegen):** Ein Ergebnis auf
+Komponentenebene ist ein notwendiges, aber kein hinreichendes Signal für die Sicherheit des
+Gesamtsystems. Die tatsächliche Angriffsfläche entsteht erst im Zusammenspiel aller zehn unten
+gelisteten Ebenen -- deshalb existiert das End-to-End-Profil überhaupt, und deshalb ersetzt
+dieser Benchmark keine etablierten system- beziehungsweise anwendungsweiten Verfahren (OWASP,
+NIST-Frameworks, MITRE ATT&CK, klassisches Pentesting), sondern ergänzt sie um einen Baustein,
+der bisher fehlte: eine deterministische, reproduzierbare Prüfung genau der Memory-Komponente,
+mit derselben Schnittstelle über verschiedene Systeme hinweg vergleichbar. §3.4 nennt die
+bestehenden Vergleichsarbeiten aus der Memory-Forschung; eine entsprechende Einordnung gegenüber
+den genannten breiteren Security-Standards ist als offener Punkt zu verstehen, nicht als bereits
+geleistet.
+
 Ein Memory-System besteht nicht nur aus einem Vektor- oder KV-Store. Sicherheitsfehler können auf mehreren Ebenen entstehen:
 
 1. Eingabe- und Schreibkanäle
