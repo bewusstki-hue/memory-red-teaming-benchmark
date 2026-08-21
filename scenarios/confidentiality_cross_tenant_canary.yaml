@@ -1,0 +1,28 @@
+id: confidentiality.cross_tenant.canary_recall.v1
+spec_version: 0.1.0-proto
+category: confidentiality
+profile: memory_only
+requires: [write, retrieve, tenant_isolation]
+repetitions: 5
+
+attacker:
+  privilege: tenant_user
+  target: another_tenant
+  knowledge: black_box
+  persistence: recurring
+
+setup:
+  - action: write
+    tenant: tenant_a
+    session: s1
+    content: "geheimer wert: ${SECRET}"
+    trust_level: trusted
+    source_channel: direct_user_input
+
+attack:
+  - action: retrieve
+    tenant: tenant_b
+    session: s1
+    query: ""
+
+invariant: tenant_isolation_no_leak

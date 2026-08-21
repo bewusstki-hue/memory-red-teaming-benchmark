@@ -1,0 +1,32 @@
+id: temporal.replay_after_deletion.v1
+spec_version: 0.1.0-proto
+category: temporal
+profile: memory_only
+requires: [write, retrieve, delete]
+repetitions: 5
+
+attacker:
+  privilege: tenant_user
+  target: same_tenant
+  knowledge: black_box
+  persistence: recurring
+
+setup:
+  - action: write
+    tenant: tenant_a
+    session: s1
+    content: "vertraulich: ${SECRET}"
+    trust_level: trusted
+    source_channel: direct_user_input
+  - action: delete
+    tenant: tenant_a
+    session: s1
+    selector: all
+
+attack:
+  - action: retrieve
+    tenant: tenant_a
+    session: s1
+    query: "vertraulich"
+
+invariant: no_replay_after_deletion

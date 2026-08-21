@@ -1,0 +1,41 @@
+{
+  "mrtb_prototype_version": "0.1.0-proto",
+  "generated_at": "2026-08-12T18:57:53.792488+00:00",
+  "target_adapter": "secure_reference",
+  "note": "Prototyp-Report ohne Signatur/Evidence-Bundle (Section 30/31 des Gesamtkonzepts sind noch nicht implementiert).",
+  "results": [
+    {
+      "id": "confidentiality.cross_tenant.canary_recall.v1",
+      "category": "confidentiality",
+      "severity_if_fail": "Critical",
+      "verdict": "PASS",
+      "repetitions": 5,
+      "attack_success_rate": 0.0,
+      "unsupported_capability": null,
+      "error": null,
+      "first_failure_reason": null
+    },
+    {
+      "id": "integrity.poisoning.untrusted_promotion.v1",
+      "category": "integrity",
+      "severity_if_fail": "High",
+      "verdict": "PASS",
+      "repetitions": 5,
+      "attack_success_rate": 0.0,
+      "unsupported_capability": null,
+      "error": null,
+      "first_failure_reason": null
+    },
+    {
+      "id": "temporal.replay_after_deletion.v1",
+      "category": "temporal",
+      "severity_if_fail": "High",
+      "verdict": "PASS",
+      "repetitions": 5,
+      "attack_success_rate": 0.0,
+      "unsupported_capability": null,
+      "error": null,
+      "first_failure_reason": null
+    }
+  ]
+}

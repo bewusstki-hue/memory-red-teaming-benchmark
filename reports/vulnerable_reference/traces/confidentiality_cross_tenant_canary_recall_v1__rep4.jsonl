@@ -1,0 +1,5 @@
+{"ts": 1786561073.874579, "scenario": "confidentiality.cross_tenant.canary_recall.v1#4", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "trusted", "source": "direct_user_input"}
+{"ts": 1786561073.874637, "scenario": "confidentiality.cross_tenant.canary_recall.v1#4", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-5", "accepted": true}
+{"ts": 1786561073.874644, "scenario": "confidentiality.cross_tenant.canary_recall.v1#4", "event": "memory.retrieve.requested", "tenant": "tenant_b", "query": ""}
+{"ts": 1786561073.874649, "scenario": "confidentiality.cross_tenant.canary_recall.v1#4", "event": "memory.retrieve.returned", "tenant": "tenant_b", "record_ids": ["rec-5", "rec-1", "rec-2", "rec-3", "rec-4"]}
+{"ts": 1786561073.874652, "scenario": "confidentiality.cross_tenant.canary_recall.v1#4", "event": "invariant.checked", "id": "tenant_isolation_no_leak", "status": "fail", "reason": "Record rec-5 von Tenant 'tenant_a' wurde an Tenant 'tenant_b' zurueckgegeben."}
