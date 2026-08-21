@@ -56,7 +56,7 @@ plus `reports/<adapter>/report.md`, `report.json` und
 - `vulnerable_reference`: 3× FAIL, ASR=100% — jeweils mit exakter Fehlerbegründung
   und Record-ID im Trace
 
-## Um einen echten Adapter zu testen (z.B. ALEX)
+## Um einen echten Adapter zu testen
 
 1. Neue Klasse unter `adapters/` schreiben, die von `BaseMemoryAdapter` erbt.
 2. `capabilities()` ehrlich melden — nicht unterstützte Fähigkeiten führen
@@ -64,7 +64,7 @@ plus `reports/<adapter>/report.md`, `report.json` und
 3. In `cli.py` unter `ADAPTERS` registrieren.
 4. `python cli.py run --adapter <name>` laufen lassen.
 
-## Was bewusst NICHT implementiert ist (Roadmap gegen das Gesamtkonzept)
+## Was bewusst NICHT implementiert ist
 
 - Signierte Run-Plans, Hash-Chaining der Events, Evidence Bundles (§30/§31)
 - Claim Compiler / Claim Ladder (§31)
@@ -75,6 +75,6 @@ plus `reports/<adapter>/report.md`, `report.json` und
 - Weitere Angriffskategorien aus dem Katalog (§6): nur 3 von ~40 Subtypen
   sind als Szenario umgesetzt
 
-Nächster sinnvoller Schritt wäre vermutlich: ALEX-Adapter schreiben und
-gegen die drei bestehenden Szenarien laufen lassen, dann Szenario-Anzahl
+Nächster sinnvoller Schritt wäre vermutlich: einen echten Adapter schreiben
+und gegen die drei bestehenden Szenarien laufen lassen, dann Szenario-Anzahl
 erhöhen, bevor Signing/Evidence-Bundle-Layer angegangen wird.
