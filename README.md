@@ -7,9 +7,8 @@ System unsicher testen, und zeigen, dass der Benchmark den Unterschied
 zuverlässig erkennt.
 
 **Unabhängigkeit:** Dieses Repository ist organisatorisch und technisch von
-[ALEX](https://bewusstki.de) getrennt (eigenes Repo, eigener Stack, keine
-ALEX-spezifische Logik im Core). ALEX ist als erster freiwilliger Prüfling
-vorgesehen, bekommt aber keine Sonderregeln — siehe
+jedem einzelnen geprüften System getrennt (eigenes Repo, eigener Stack, keine
+systemspezifische Logik im Core) — siehe
 `Memory_Red_Teaming_Benchmark_Gesamtkonzept.md`, Abschnitt 13. Lizenz:
 [Apache 2.0](LICENSE).
 
