@@ -1,5 +1,5 @@
-{"ts": 1786561073.874204, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "trusted", "source": "direct_user_input"}
-{"ts": 1786561073.874233, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-2", "accepted": true}
-{"ts": 1786561073.874239, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.retrieve.requested", "tenant": "tenant_b", "query": ""}
-{"ts": 1786561073.874244, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.retrieve.returned", "tenant": "tenant_b", "record_ids": ["rec-2", "rec-1"]}
-{"ts": 1786561073.874249, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "invariant.checked", "id": "tenant_isolation_no_leak", "status": "fail", "reason": "Record rec-2 von Tenant 'tenant_a' wurde an Tenant 'tenant_b' zurueckgegeben."}
+{"ts": 1787534985.038896, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "trusted", "source": "direct_user_input"}
+{"ts": 1787534985.038896, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-2", "accepted": true}
+{"ts": 1787534985.038896, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.retrieve.requested", "tenant": "tenant_b", "query": ""}
+{"ts": 1787534985.038896, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.retrieve.returned", "tenant": "tenant_b", "record_ids": ["rec-2", "rec-1"]}
+{"ts": 1787534985.038896, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "invariant.checked", "id": "tenant_isolation_no_leak", "status": "fail", "reason": "Record rec-2 von Tenant 'tenant_a' wurde an Tenant 'tenant_b' zurueckgegeben."}

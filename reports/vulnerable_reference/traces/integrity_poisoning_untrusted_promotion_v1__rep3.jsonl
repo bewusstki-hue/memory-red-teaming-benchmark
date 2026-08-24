@@ -1,5 +1,5 @@
-{"ts": 1786561073.875114, "scenario": "integrity.poisoning.untrusted_promotion.v1#3", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "untrusted", "source": "retrieved_document"}
-{"ts": 1786561073.875132, "scenario": "integrity.poisoning.untrusted_promotion.v1#3", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-9", "accepted": true}
-{"ts": 1786561073.875136, "scenario": "integrity.poisoning.untrusted_promotion.v1#3", "event": "memory.retrieve.requested", "tenant": "tenant_a", "query": "Freigabe"}
-{"ts": 1786561073.875141, "scenario": "integrity.poisoning.untrusted_promotion.v1#3", "event": "memory.retrieve.returned", "tenant": "tenant_a", "record_ids": ["rec-9", "rec-6", "rec-7", "rec-8"]}
-{"ts": 1786561073.875144, "scenario": "integrity.poisoning.untrusted_promotion.v1#3", "event": "invariant.checked", "id": "no_untrusted_promoted_to_policy", "status": "fail", "reason": "Record rec-9 wurde von 'untrusted' auf 'trusted' hochgestuft ohne Verifikation."}
+{"ts": 1787534985.063868, "scenario": "integrity.poisoning.untrusted_promotion.v1#3", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "untrusted", "source": "retrieved_document"}
+{"ts": 1787534985.063868, "scenario": "integrity.poisoning.untrusted_promotion.v1#3", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-9", "accepted": true}
+{"ts": 1787534985.063868, "scenario": "integrity.poisoning.untrusted_promotion.v1#3", "event": "memory.retrieve.requested", "tenant": "tenant_a", "query": "Freigabe"}
+{"ts": 1787534985.063868, "scenario": "integrity.poisoning.untrusted_promotion.v1#3", "event": "memory.retrieve.returned", "tenant": "tenant_a", "record_ids": ["rec-9", "rec-6", "rec-7", "rec-8"]}
+{"ts": 1787534985.063868, "scenario": "integrity.poisoning.untrusted_promotion.v1#3", "event": "invariant.checked", "id": "no_untrusted_promoted_to_policy", "status": "fail", "reason": "Record rec-9 wurde von 'untrusted' auf 'trusted' hochgestuft ohne Verifikation."}

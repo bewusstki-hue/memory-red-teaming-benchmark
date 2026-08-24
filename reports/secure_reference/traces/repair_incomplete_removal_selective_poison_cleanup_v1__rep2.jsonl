@@ -1,0 +1,9 @@
+{"ts": 1787534984.364744, "scenario": "repair.incomplete_removal.selective_poison_cleanup.v1#2", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "trusted", "source": "direct_user_input"}
+{"ts": 1787534984.364744, "scenario": "repair.incomplete_removal.selective_poison_cleanup.v1#2", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-1", "accepted": true}
+{"ts": 1787534984.364744, "scenario": "repair.incomplete_removal.selective_poison_cleanup.v1#2", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "untrusted", "source": "retrieved_document"}
+{"ts": 1787534984.364744, "scenario": "repair.incomplete_removal.selective_poison_cleanup.v1#2", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-2", "accepted": true}
+{"ts": 1787534984.364744, "scenario": "repair.incomplete_removal.selective_poison_cleanup.v1#2", "event": "memory.delete.requested", "tenant": "tenant_a", "selector_mode": "by_query", "selector_value": "CANARY-3778cf2e93b0-POISON"}
+{"ts": 1787534984.364744, "scenario": "repair.incomplete_removal.selective_poison_cleanup.v1#2", "event": "memory.delete.completed", "tenant": "tenant_a", "deleted_count": 1}
+{"ts": 1787534984.364744, "scenario": "repair.incomplete_removal.selective_poison_cleanup.v1#2", "event": "memory.retrieve.requested", "tenant": "tenant_a", "query": ""}
+{"ts": 1787534984.364744, "scenario": "repair.incomplete_removal.selective_poison_cleanup.v1#2", "event": "memory.retrieve.returned", "tenant": "tenant_a", "record_ids": ["rec-1"]}
+{"ts": 1787534984.364744, "scenario": "repair.incomplete_removal.selective_poison_cleanup.v1#2", "event": "invariant.checked", "id": "selective_repair_no_collateral_loss", "status": "pass", "reason": "Vergifteter Record gezielt entfernt, legitimer Record unangetastet erhalten."}

@@ -1,5 +1,5 @@
-{"ts": 1786561073.791438, "scenario": "integrity.poisoning.untrusted_promotion.v1#0", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "untrusted", "source": "retrieved_document"}
-{"ts": 1786561073.791446, "scenario": "integrity.poisoning.untrusted_promotion.v1#0", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-1", "accepted": true}
-{"ts": 1786561073.79145, "scenario": "integrity.poisoning.untrusted_promotion.v1#0", "event": "memory.retrieve.requested", "tenant": "tenant_a", "query": "Freigabe"}
-{"ts": 1786561073.791453, "scenario": "integrity.poisoning.untrusted_promotion.v1#0", "event": "memory.retrieve.returned", "tenant": "tenant_a", "record_ids": ["rec-1"]}
-{"ts": 1786561073.791457, "scenario": "integrity.poisoning.untrusted_promotion.v1#0", "event": "invariant.checked", "id": "no_untrusted_promoted_to_policy", "status": "pass", "reason": "Provenienz/Trust-Level korrekt erhalten."}
+{"ts": 1787534984.359477, "scenario": "integrity.poisoning.untrusted_promotion.v1#0", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "untrusted", "source": "retrieved_document"}
+{"ts": 1787534984.359477, "scenario": "integrity.poisoning.untrusted_promotion.v1#0", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-1", "accepted": true}
+{"ts": 1787534984.359477, "scenario": "integrity.poisoning.untrusted_promotion.v1#0", "event": "memory.retrieve.requested", "tenant": "tenant_a", "query": "Freigabe"}
+{"ts": 1787534984.359477, "scenario": "integrity.poisoning.untrusted_promotion.v1#0", "event": "memory.retrieve.returned", "tenant": "tenant_a", "record_ids": ["rec-1"]}
+{"ts": 1787534984.359477, "scenario": "integrity.poisoning.untrusted_promotion.v1#0", "event": "invariant.checked", "id": "no_untrusted_promoted_to_policy", "status": "pass", "reason": "Provenienz/Trust-Level korrekt erhalten."}

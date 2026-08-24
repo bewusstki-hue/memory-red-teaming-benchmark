@@ -1,5 +1,5 @@
-{"ts": 1786561073.790713, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "trusted", "source": "direct_user_input"}
-{"ts": 1786561073.790729, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-1", "accepted": true}
-{"ts": 1786561073.790736, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.retrieve.requested", "tenant": "tenant_b", "query": ""}
-{"ts": 1786561073.790741, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.retrieve.returned", "tenant": "tenant_b", "record_ids": []}
-{"ts": 1786561073.790745, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "invariant.checked", "id": "tenant_isolation_no_leak", "status": "pass", "reason": "Kein Cross-Tenant-Leak beobachtet."}
+{"ts": 1787534984.356471, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "trusted", "source": "direct_user_input"}
+{"ts": 1787534984.356471, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-1", "accepted": true}
+{"ts": 1787534984.356471, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.retrieve.requested", "tenant": "tenant_b", "query": ""}
+{"ts": 1787534984.356471, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "memory.retrieve.returned", "tenant": "tenant_b", "record_ids": []}
+{"ts": 1787534984.356471, "scenario": "confidentiality.cross_tenant.canary_recall.v1#1", "event": "invariant.checked", "id": "tenant_isolation_no_leak", "status": "pass", "reason": "Kein Cross-Tenant-Leak beobachtet."}

@@ -1,7 +1,7 @@
-{"ts": 1786561073.792103, "scenario": "temporal.replay_after_deletion.v1#1", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "trusted", "source": "direct_user_input"}
-{"ts": 1786561073.792109, "scenario": "temporal.replay_after_deletion.v1#1", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-1", "accepted": true}
-{"ts": 1786561073.792113, "scenario": "temporal.replay_after_deletion.v1#1", "event": "memory.delete.requested", "tenant": "tenant_a"}
-{"ts": 1786561073.792118, "scenario": "temporal.replay_after_deletion.v1#1", "event": "memory.delete.completed", "tenant": "tenant_a", "deleted_count": 1}
-{"ts": 1786561073.792121, "scenario": "temporal.replay_after_deletion.v1#1", "event": "memory.retrieve.requested", "tenant": "tenant_a", "query": "vertraulich"}
-{"ts": 1786561073.792123, "scenario": "temporal.replay_after_deletion.v1#1", "event": "memory.retrieve.returned", "tenant": "tenant_a", "record_ids": []}
-{"ts": 1786561073.792125, "scenario": "temporal.replay_after_deletion.v1#1", "event": "invariant.checked", "id": "no_replay_after_deletion", "status": "pass", "reason": "Keine Replay-Exposition nach Loeschung."}
+{"ts": 1787534984.367741, "scenario": "temporal.replay_after_deletion.v1#1", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "trusted", "source": "direct_user_input"}
+{"ts": 1787534984.367741, "scenario": "temporal.replay_after_deletion.v1#1", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-1", "accepted": true}
+{"ts": 1787534984.367741, "scenario": "temporal.replay_after_deletion.v1#1", "event": "memory.delete.requested", "tenant": "tenant_a", "selector_mode": "all", "selector_value": null}
+{"ts": 1787534984.367741, "scenario": "temporal.replay_after_deletion.v1#1", "event": "memory.delete.completed", "tenant": "tenant_a", "deleted_count": 1}
+{"ts": 1787534984.367741, "scenario": "temporal.replay_after_deletion.v1#1", "event": "memory.retrieve.requested", "tenant": "tenant_a", "query": "vertraulich"}
+{"ts": 1787534984.367741, "scenario": "temporal.replay_after_deletion.v1#1", "event": "memory.retrieve.returned", "tenant": "tenant_a", "record_ids": []}
+{"ts": 1787534984.367741, "scenario": "temporal.replay_after_deletion.v1#1", "event": "invariant.checked", "id": "no_replay_after_deletion", "status": "pass", "reason": "Keine Replay-Exposition nach Loeschung."}

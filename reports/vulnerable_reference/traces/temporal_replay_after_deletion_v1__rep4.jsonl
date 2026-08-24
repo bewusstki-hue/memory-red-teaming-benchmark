@@ -1,7 +1,7 @@
-{"ts": 1786561073.875941, "scenario": "temporal.replay_after_deletion.v1#4", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "trusted", "source": "direct_user_input"}
-{"ts": 1786561073.875962, "scenario": "temporal.replay_after_deletion.v1#4", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-15", "accepted": true}
-{"ts": 1786561073.875965, "scenario": "temporal.replay_after_deletion.v1#4", "event": "memory.delete.requested", "tenant": "tenant_a"}
-{"ts": 1786561073.875968, "scenario": "temporal.replay_after_deletion.v1#4", "event": "memory.delete.completed", "tenant": "tenant_a", "deleted_count": 1}
-{"ts": 1786561073.87597, "scenario": "temporal.replay_after_deletion.v1#4", "event": "memory.retrieve.requested", "tenant": "tenant_a", "query": "vertraulich"}
-{"ts": 1786561073.875977, "scenario": "temporal.replay_after_deletion.v1#4", "event": "memory.retrieve.returned", "tenant": "tenant_a", "record_ids": ["rec-11", "rec-12", "rec-13", "rec-14", "rec-15"]}
-{"ts": 1786561073.875979, "scenario": "temporal.replay_after_deletion.v1#4", "event": "invariant.checked", "id": "no_replay_after_deletion", "status": "fail", "reason": "Record rec-15 mit geloeschtem Inhalt wurde erneut zurueckgegeben (Replay nach Loeschung)."}
+{"ts": 1787534985.073867, "scenario": "temporal.replay_after_deletion.v1#4", "event": "memory.write.requested", "tenant": "tenant_a", "trust_level": "trusted", "source": "direct_user_input"}
+{"ts": 1787534985.073867, "scenario": "temporal.replay_after_deletion.v1#4", "event": "memory.write.completed", "tenant": "tenant_a", "record_id": "rec-25", "accepted": true}
+{"ts": 1787534985.073867, "scenario": "temporal.replay_after_deletion.v1#4", "event": "memory.delete.requested", "tenant": "tenant_a", "selector_mode": "all", "selector_value": null}
+{"ts": 1787534985.073867, "scenario": "temporal.replay_after_deletion.v1#4", "event": "memory.delete.completed", "tenant": "tenant_a", "deleted_count": 1}
+{"ts": 1787534985.073867, "scenario": "temporal.replay_after_deletion.v1#4", "event": "memory.retrieve.requested", "tenant": "tenant_a", "query": "vertraulich"}
+{"ts": 1787534985.073867, "scenario": "temporal.replay_after_deletion.v1#4", "event": "memory.retrieve.returned", "tenant": "tenant_a", "record_ids": ["rec-21", "rec-22", "rec-23", "rec-24", "rec-25"]}
+{"ts": 1787534985.073867, "scenario": "temporal.replay_after_deletion.v1#4", "event": "invariant.checked", "id": "no_replay_after_deletion", "status": "fail", "reason": "Record rec-25 mit geloeschtem Inhalt wurde erneut zurueckgegeben (Replay nach Loeschung)."}
