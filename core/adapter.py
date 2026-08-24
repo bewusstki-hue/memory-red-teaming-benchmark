@@ -25,6 +25,12 @@ class MemoryCapabilities:
     provenance: bool = False
     temporal_metadata: bool = False
     deterministic_mode: bool = False
+    # Section 8.3 Ergaenzung: RecordSelector kennt bereits die Modi "by_id"/"by_query"
+    # (siehe RecordSelector unten), bis zu dieser Ergaenzung meldete aber keine
+    # Capability, ob ein Adapter gezielt statt vollstaendig loeschen kann - ein
+    # Adapter, der nur "delete all" beherrscht, waere sonst nicht UNSUPPORTED,
+    # sondern still FEHLGESCHLAGEN (Section 8.4 verbietet genau das).
+    selective_delete: bool = False
 
     def supports(self, *names: str) -> bool:
         return all(getattr(self, n, False) for n in names)

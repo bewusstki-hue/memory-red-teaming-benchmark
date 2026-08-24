@@ -74,8 +74,10 @@ def _run_setup(adapter, trace: EventTrace, steps: list[ScenarioStep], secret: st
             original_trust_level = step.trust_level
         elif step.action == "delete":
             ctx = DeleteContext(tenant_id=step.tenant, session_id=step.session)
-            trace.emit("memory.delete.requested", tenant=step.tenant)
-            res = adapter.delete(ctx, RecordSelector(mode=step.selector_mode))
+            selector_value = _substitute(step.query, secret)
+            trace.emit("memory.delete.requested", tenant=step.tenant,
+                        selector_mode=step.selector_mode, selector_value=selector_value)
+            res = adapter.delete(ctx, RecordSelector(mode=step.selector_mode, value=selector_value))
             trace.emit("memory.delete.completed", tenant=step.tenant,
                         deleted_count=res.deleted_count)
     return original_trust_level, written_record_id
@@ -125,6 +127,18 @@ def run_scenario(adapter: BaseMemoryAdapter, scenario: Scenario,
                         "memory.retrieve.returned", tenant=step.tenant,
                         record_ids=[r.id for r in last_result.records],
                     )
+                elif step.action == "delete":
+                    # Ergaenzung fuer Reparaturangriff-Szenarien (Section 6.8): bisher
+                    # kannte nur die Setup-Phase "delete" (siehe _run_setup), ein
+                    # gezielter Reparaturversuch als Teil des Angriffsablaufs selbst
+                    # (nicht als Vorbedingung) fehlte.
+                    delete_ctx = DeleteContext(tenant_id=step.tenant, session_id=step.session)
+                    selector_value = _substitute(step.query, secret)
+                    trace.emit("memory.delete.requested", tenant=step.tenant,
+                                selector_mode=step.selector_mode, selector_value=selector_value)
+                    delete_res = adapter.delete(delete_ctx, RecordSelector(mode=step.selector_mode, value=selector_value))
+                    trace.emit("memory.delete.completed", tenant=step.tenant,
+                                deleted_count=delete_res.deleted_count)
 
             if scenario.invariant == "tenant_isolation_no_leak":
                 verdict: VerdictDetail = invariant_fn(attacker_ctx, last_result, secret)
@@ -132,6 +146,11 @@ def run_scenario(adapter: BaseMemoryAdapter, scenario: Scenario,
                 verdict = invariant_fn(last_result, original_trust_level)
             elif scenario.invariant == "no_replay_after_deletion":
                 verdict = invariant_fn(last_result, secret)
+            elif scenario.invariant == "selective_repair_no_collateral_loss":
+                # Konvention dieses Szenarios: die beiden geschriebenen Records
+                # tragen den gemeinsamen Lauf-Secret als Praefix, unterschieden
+                # durch ein festes Suffix (siehe scenarios/repair_selective_poison_removal.yaml).
+                verdict = invariant_fn(last_result, f"{secret}-POISON", f"{secret}-LEGIT")
             else:
                 verdict = VerdictDetail(False, "Kein Handler fuer Invariante implementiert.")
 

@@ -1,6 +1,6 @@
 """
 Referenz-Adapter B: 'vulnerable_reference'
-Enthaelt drei absichtliche, realistische Bugs, um zu beweisen, dass der
+Enthaelt vier absichtliche, realistische Bugs, um zu beweisen, dass der
 Benchmark sie tatsaechlich findet (Negativkontrolle, Section 13.2):
 
 1. Retrieval durchsucht ALLE Tenants statt nur den eigenen Bucket
@@ -9,6 +9,10 @@ Benchmark sie tatsaechlich findet (Negativkontrolle, Section 13.2):
    automatisch auf 'trusted' hochgestuft (Authority-Laundering).
 3. Delete markiert nur ein Flag, ein interner Retrieval-Cache liefert
    den Inhalt aber noch einige Zyklen lang weiter aus (Replay-Bug).
+4. Delete ignoriert selector.mode komplett -- ein als "gezielt" gemeinter
+   Reparaturversuch (by_query/by_id) loescht in Wirklichkeit immer den
+   gesamten Tenant-Bucket, waehrend Bug 3 gleichzeitig verhindert, dass
+   der eigentliche Ziel-Record ueberhaupt verschwindet (Section 6.8).
 """
 
 from __future__ import annotations
@@ -37,6 +41,9 @@ class VulnerableReferenceAdapter(BaseMemoryAdapter):
             write=True, retrieve=True, delete=True, list_records=True,
             clear_session=True, clear_tenant=True, tenant_isolation=True,
             provenance=True, temporal_metadata=False, deterministic_mode=True,
+            # Behauptet auch hier mehr als der Code haelt: delete() unten ignoriert
+            # selector.mode komplett und loescht immer den ganzen Tenant-Bucket.
+            selective_delete=True,
         )
 
     def create_tenant(self, tenant_id: str) -> None:

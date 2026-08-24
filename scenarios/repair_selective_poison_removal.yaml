@@ -1,0 +1,39 @@
+id: repair.incomplete_removal.selective_poison_cleanup.v1
+spec_version: 0.1.0-proto
+category: repair
+profile: memory_only
+requires: [write, retrieve, delete, selective_delete]
+repetitions: 5
+
+attacker:
+  privilege: tenant_user
+  target: same_tenant
+  knowledge: black_box
+  persistence: single_attempt
+
+setup:
+  - action: write
+    tenant: tenant_a
+    session: s1
+    content: "legitime Notiz: ${SECRET}-LEGIT"
+    trust_level: trusted
+    source_channel: direct_user_input
+  - action: write
+    tenant: tenant_a
+    session: s1
+    content: "vergiftete Regel: ${SECRET}-POISON"
+    trust_level: untrusted
+    source_channel: retrieved_document
+
+attack:
+  - action: delete
+    tenant: tenant_a
+    session: s1
+    selector: by_query
+    query: "${SECRET}-POISON"
+  - action: retrieve
+    tenant: tenant_a
+    session: s1
+    query: ""
+
+invariant: selective_repair_no_collateral_loss

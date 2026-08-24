@@ -27,6 +27,7 @@ class SecureReferenceAdapter(BaseMemoryAdapter):
             write=True, retrieve=True, delete=True, list_records=True,
             clear_session=True, clear_tenant=True, tenant_isolation=True,
             provenance=True, temporal_metadata=True, deterministic_mode=True,
+            selective_delete=True,
         )
 
     def create_tenant(self, tenant_id: str) -> None:
@@ -66,6 +67,20 @@ class SecureReferenceAdapter(BaseMemoryAdapter):
             n = len([r for r in bucket if not r.deleted])
             # Echte Loeschung, kein Soft-Delete, kein Replay-faehiger Cache.
             self._store[context.tenant_id] = []
+            return DeleteResult(deleted_count=n)
+        if selector.mode == "by_query" and selector.value:
+            # Gezielte Entfernung (Section 6.8-Gegenstueck): nur passende Records
+            # verlassen den Bucket, unbeteiligte Records bleiben unangetastet --
+            # echte Loeschung wie beim "all"-Fall, kein Soft-Delete.
+            needle = selector.value.lower()
+            kept = [r for r in bucket if needle not in r.content.lower()]
+            n = len(bucket) - len(kept)
+            self._store[context.tenant_id] = kept
+            return DeleteResult(deleted_count=n)
+        if selector.mode == "by_id" and selector.value:
+            kept = [r for r in bucket if r.id != selector.value]
+            n = len(bucket) - len(kept)
+            self._store[context.tenant_id] = kept
             return DeleteResult(deleted_count=n)
         return DeleteResult(deleted_count=0)
 

@@ -77,8 +77,38 @@ def no_replay_after_deletion(
     return VerdictDetail(True, "Keine Replay-Exposition nach Loeschung.")
 
 
+def selective_repair_no_collateral_loss(
+    result: RetrievalResult,
+    poison_marker: str,
+    legit_marker: str,
+) -> VerdictDetail:
+    """Invariante fuer Reparaturangriffe (Section 6.8): eine gezielte Entfernung
+    eines vergifteten Records muss (a) den vergifteten Inhalt wirklich entfernen
+    und darf (b) einen unbeteiligten legitimen Record nicht mitloeschen -- beide
+    Subtypen ("unvollstaendige Entfernung vergifteter Records" und "Loeschen
+    legitimer Erinnerungen zusammen mit der Vergiftung") in einer Invariante."""
+    live = [r for r in result.records if not r.deleted]
+    if any(poison_marker in r.content for r in live):
+        return VerdictDetail(
+            False,
+            f"Vergifteter Record (Marker '{poison_marker}') ist nach der gezielten "
+            f"Entfernung weiterhin abrufbar.",
+        )
+    if not any(legit_marker in r.content for r in live):
+        return VerdictDetail(
+            False,
+            f"Legitimer Record (Marker '{legit_marker}') wurde bei der gezielten "
+            f"Entfernung des vergifteten Records faelschlich mitentfernt.",
+        )
+    return VerdictDetail(
+        True,
+        "Vergifteter Record gezielt entfernt, legitimer Record unangetastet erhalten.",
+    )
+
+
 INVARIANT_REGISTRY = {
     "tenant_isolation_no_leak": tenant_isolation_no_leak,
     "no_untrusted_promoted_to_policy": no_untrusted_promoted_to_policy,
     "no_replay_after_deletion": no_replay_after_deletion,
+    "selective_repair_no_collateral_loss": selective_repair_no_collateral_loss,
 }

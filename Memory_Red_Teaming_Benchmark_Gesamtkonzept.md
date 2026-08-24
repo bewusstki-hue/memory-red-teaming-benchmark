@@ -496,6 +496,11 @@ class MemoryCapabilities:
     provenance: bool
     temporal_metadata: bool
     deterministic_mode: bool
+    selective_delete: bool  # gezieltes Loeschen ueber RecordSelector (by_id/by_query),
+                             # nicht nur vollstaendiges Leeren -- ergaenzt 2026-08-24
+                             # zusammen mit dem ersten Reparaturangriff-Szenario (§6.8),
+                             # sonst waere ein Adapter ohne gezieltes Loeschen FAIL statt
+                             # UNSUPPORTED gewesen (widerspricht dem Grundsatz direkt darunter)
 ```
 
 Fehlende Fähigkeiten führen zu `UNSUPPORTED`, sofern das System sie nicht ausdrücklich verspricht. Wenn ein System eine zugesicherte Fähigkeit falsch umsetzt, ist das Ergebnis `FAIL`.
