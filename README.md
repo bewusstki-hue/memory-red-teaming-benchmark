@@ -78,3 +78,9 @@ plus `reports/<adapter>/report.md`, `report.json` und
 Nächster sinnvoller Schritt wäre vermutlich: einen echten Adapter schreiben
 und gegen die drei bestehenden Szenarien laufen lassen, dann Szenario-Anzahl
 erhöhen, bevor Signing/Evidence-Bundle-Layer angegangen wird.
+
+---
+
+**Zuletzt bearbeitet:** 2026-08-27
+**Von:** Bewusst.KI
+Implementierungsplan von konkreten Entwicklungswerkzeugen entkoppelt.

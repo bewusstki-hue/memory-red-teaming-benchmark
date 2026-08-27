@@ -1045,7 +1045,7 @@ Der Benchmark verwendet standardmäßig synthetische Daten und kontrollierte Tes
 
 ---
 
-## 21. Konkreter Bauplan für Claude Code in VS Code
+## 21. Konkreter Implementierungsplan
 
 Die Implementierung sollte nicht mit einem großen Gesamtprompt beginnen. Jede Phase erhält einen begrenzten Auftrag, überprüfbare Akzeptanzkriterien und eigene Tests.
 
@@ -1053,7 +1053,7 @@ Die Implementierung sollte nicht mit einem großen Gesamtprompt beginnen. Jede P
 
 **Ziel:** Projektstruktur und normative Dokumente anlegen, noch ohne produktive Angriffslogik.
 
-**Claude-Code-Auftrag:**
+**Implementierungsauftrag:**
 
 ```text
 Erstelle ein Python-3.11+-Projekt namens memory-redteam-benchmark mit src-layout.
@@ -1665,7 +1665,7 @@ src/memory_redteam/
 15. unabhängige Reproduktion als L3
 16. optionale TEE-Ausführung als L4
 
-### 27.4 Neue Claude-Code-Arbeitspakete
+### 27.4 Neue Implementierungsarbeitspakete
 
 #### Auftrag 9: Plugin Protocol
 
@@ -2113,7 +2113,7 @@ Das CLI-Kommando `memory-redteam verify <bundle>` prüft mindestens:
 - statistische Berechnungen
 - Claim-Policy
 
-### 31.5 Zusätzliche Claude-Code-Arbeitspakete
+### 31.5 Zusätzliche Implementierungsarbeitspakete
 
 #### Auftrag 13: Replay und Szenario-Provenienz
 
