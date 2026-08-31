@@ -102,3 +102,9 @@ Claim oberhalb L0 unbelegt, unabhängig davon wie viele Szenarien PASS
 melden. Diese Zeile hier nachziehen, sobald Signing/Evidence-Bundle (§25,
 §31) umgesetzt sind, sonst veraltet sie genauso wie die alte 3-Szenarien-Zahl
 es getan hätte.
+
+---
+
+**Zuletzt bearbeitet:** 2026-08-27
+**Von:** Bewusst.KI
+Implementierungsplan von konkreten Entwicklungswerkzeugen entkoppelt.
